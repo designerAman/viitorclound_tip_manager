@@ -17,10 +17,15 @@
   },
   "homepage": "https://gitlab.com/WebWaale/just-buy-backend#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "chalk": "^4.1.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "joi": "^17.4.2",
+    "moment-timezone": "^0.5.33",
+    "multer": "^1.4.3",
     "mysql2": "^2.3.0",
+    "nodemailer": "^6.7.0",
     "sequelize": "^6.7.0",
     "umzug": "^2.3.0"
   }
