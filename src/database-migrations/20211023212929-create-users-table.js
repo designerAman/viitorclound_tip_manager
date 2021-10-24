@@ -24,8 +24,7 @@ module.exports = {
       },
       accessToken: {
         type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
+        allowNull: true,
       },
       password: {
         type: Sequelize.STRING,
