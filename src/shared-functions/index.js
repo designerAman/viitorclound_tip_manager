@@ -25,11 +25,18 @@ const getAccessToken = makeGetAccessToken({
   uuid,
   userDb: DB.userDb,
   ValidationError: exceptions.ValidationError,
-})
+});
+
+const makeVerifyHashedString = require("./verify-hashed-string");
+const verifyHashedString = makeVerifyHashedString({
+  bcrypt
+});
+
 
 module.exports = Object.freeze({
   validatePassword,
   createStringHash,
   sendEmail,
   getAccessToken,
+  verifyHashedString,
 });

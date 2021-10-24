@@ -19,6 +19,18 @@ const signUp = makeSignUp({
   AlreadyExistsError: exceptions.AlreadyExistsError,
 });
 
+const makeLogin = require('./login');
+const login = makeLogin({
+  Joi,
+  userDb: DB.userDb,
+  verifyHashedString: sharedFunctions.verifyHashedString,
+  getAccessToken: sharedFunctions.getAccessToken,
+  ValidationError: exceptions.ValidationError,
+  NotFoundError: exceptions.NotFoundError,
+  AuthorizationError: exceptions.AuthorizationError,
+});
+
 module.exports = Object.freeze({
   signUp,
+  login,
 });

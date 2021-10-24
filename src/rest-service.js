@@ -15,5 +15,11 @@ module.exports = function makeApiRoutes({ app, controllers, middlewares }) {
         middlewares.uploadImages.single('proPic'),
         controllers.registrationAndProfile.signUpAction,
       );
+
+    app
+      .route("/user/login")
+      .post(
+        controllers.registrationAndProfile.loginAction,
+      );
   }
 };
