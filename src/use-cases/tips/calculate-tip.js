@@ -19,7 +19,9 @@ module.exports = function makeCalculateTip({
 
     const tipAmount = (+totalAmount / 100) * +tipPercentage;
 
-    return tipAmount.toFixed(2);
+    return {
+      tip: tipAmount.toFixed(2),
+    };
   }
 
   async function validateInput({ place, totalAmount, tipPercentage, userId }) {
