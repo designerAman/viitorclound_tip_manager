@@ -15,7 +15,7 @@ const uploadImages = makeUploadImages({
 const makeVerifyUserAccessToken = require('./verify-user-access-token');
 const verifyUserAccessToken = makeVerifyUserAccessToken({
   chalk,
-  accessTokenDb: DB.accessTokenDb,
+  userDb: DB.userDb,
   AuthorizationError: exceptions.AuthorizationError,
   handleError,
 });

@@ -21,7 +21,11 @@ const testDb = makeTestDb({ mysql });
 const makeUserDb = require('./user.db');
 const userDb = makeUserDb({ mysql });
 
+const makeTipDb = require('./tip.db');
+const tipDb = makeTipDb({ mysql });
+
 module.exports = Object.freeze({
   testDb,
   userDb,
+  tipDb,
 });

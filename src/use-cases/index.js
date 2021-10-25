@@ -6,8 +6,10 @@ const testMessage = makeTestMessage({
 });
 
 const registrationAndProfileUseCases = require('./registration-and-profile');
+const tipsUseCases = require('./tips');
 
 module.exports = Object.freeze({
   testMessage,
   registrationAndProfile: registrationAndProfileUseCases,
+  tips: tipsUseCases,
 });

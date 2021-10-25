@@ -1,6 +1,7 @@
 module.exports = function makeApiRoutes({ app, controllers, middlewares }) {
   initTestRoutes();
   initRegistrationAndProfileRoutes();
+  initTipRoutes();
 
   function initTestRoutes() {
     app
@@ -21,5 +22,14 @@ module.exports = function makeApiRoutes({ app, controllers, middlewares }) {
       .post(
         controllers.registrationAndProfile.loginAction,
       );
+  }
+
+  function initTipRoutes() {
+    app
+    .route("/tip/calculate")
+    .post(
+      middlewares.verifyUserAccessToken,
+      controllers.tips.calculateTipAction,
+    );
   }
 };
