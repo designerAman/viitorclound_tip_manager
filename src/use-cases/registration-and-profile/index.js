@@ -1,6 +1,6 @@
 const Joi = require('joi');
 const momentTZ = require('moment-timezone');
-const uuid = require('uuid');
+const fs = require('fs');
 
 const DB = require('../../data-access');
 const exceptions = require('../../exceptions');
@@ -10,6 +10,7 @@ const makeSignUp = require('./sign-up');
 const signUp = makeSignUp({
   Joi,
   momentTZ,
+  fs,
   userDb: DB.userDb,
   validatePassword: sharedFunctions.validatePassword,
   createStringHash: sharedFunctions.createStringHash,

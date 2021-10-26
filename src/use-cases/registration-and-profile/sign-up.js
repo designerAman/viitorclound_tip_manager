@@ -1,6 +1,7 @@
 module.exports = function makeSignUp({
   Joi,
   momentTZ,
+  fs,
   userDb,
   validatePassword,
   createStringHash,
@@ -26,19 +27,17 @@ module.exports = function makeSignUp({
     }
 
     password = await createStringHash(password);
-    profilePicture = profilePicture.filename;
+    profilePic = profilePicture.filename;
 
     const registeredUserDetails = await userDb.addUser({
       userDetails: {
         name,
         email,
         password,
-        profilePicture,
+        profilePicture: profilePic,
         createdAt: momentTZ.tz('Asia/Kolkata').format('YYYY-MM-DD HH:mm:ss'),
       },
     });
-
-    console.log({registeredUserDetails});
 
     const token = await getAccessToken({ userId: +registeredUserDetails.insertId });
 
@@ -48,6 +47,8 @@ module.exports = function makeSignUp({
         profilePicture: `${registeredUserDetails.insertId}.jpg`,
       }
     });
+
+    fs.renameSync(`${profilePicture.path}`, `${profilePicture.destination}/${registeredUserDetails.insertId}.jpg`);
 
     sendEmail({
       email,
