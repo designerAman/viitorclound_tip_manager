@@ -31,5 +31,12 @@ module.exports = function makeApiRoutes({ app, controllers, middlewares }) {
       middlewares.verifyUserAccessToken,
       controllers.tips.calculateTipAction,
     );
+
+    app
+    .route("/tip")
+    .get(
+      middlewares.verifyUserAccessToken,
+      controllers.tips.getTipsAction,
+    );
   }
 };

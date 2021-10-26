@@ -10,6 +10,14 @@ const calculateTipAction = makeCalculateTipAction({
   handleError,
 });
 
+const makeGetTipsAction = require('./get-tips');
+const getTipsAction = makeGetTipsAction({
+  chalk,
+  getTips: tipUseCases.getTips,
+  handleError,
+});
+
 module.exports = Object.freeze({
   calculateTipAction,
+  getTipsAction,
 });

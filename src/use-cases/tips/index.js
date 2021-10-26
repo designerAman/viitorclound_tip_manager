@@ -12,6 +12,14 @@ const calculateTip = makeCalculateTip({
   ValidationError: exceptions.ValidationError,
 });
 
+const makeGetTips = require('./get-tips');
+const getTips = makeGetTips({
+  Joi,
+  tipDb: DB.tipDb,
+  ValidationError: exceptions.ValidationError,
+});
+
 module.exports = Object.freeze({
   calculateTip,
+  getTips,
 });
